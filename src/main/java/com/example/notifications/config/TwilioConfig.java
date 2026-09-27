@@ -1,0 +1,2 @@
+package com.example.notifications.config;
+public record TwilioConfig(String accountSid,char[] authToken,String fromNumber) implements ProviderConfig { public TwilioConfig {authToken=authToken.clone();if(accountSid==null||authToken.length==0||fromNumber==null)throw new IllegalArgumentException("Configuración Twilio incompleta");} public String providerName(){return "Twilio";} @Override public char[] authToken(){return authToken.clone();} }

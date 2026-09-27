@@ -1,0 +1,3 @@
+package com.example.notifications.provider;
+import com.example.notifications.api.*; import com.example.notifications.spi.NotificationProvider; import org.slf4j.*; import java.time.Instant; import java.util.UUID;
+abstract class AbstractSimulatedProvider implements NotificationProvider { private final Logger log=LoggerFactory.getLogger(getClass()); public SendResult send(Notification n){String id=externalId();log.info("Simulated {} request accepted: recipient={}, id={}",name(),mask(n.recipient()),id);return new SendResult(UUID.randomUUID().toString(),channel(),name(),SendStatus.QUEUED,id,1,Instant.now());} protected abstract String externalId(); private String mask(String v){return v.length()<5?"***":v.substring(0,2)+"***"+v.substring(v.length()-2);} }
