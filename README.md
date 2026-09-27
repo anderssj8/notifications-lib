@@ -154,7 +154,3 @@ docker run --rm notifications-lib
 - Twilio REST API responses/errors: https://www.twilio.com/docs/usage/twilios-response
 - FCM HTTP v1 send: https://firebase.google.com/docs/cloud-messaging/send-message
 - FCM error codes: https://firebase.google.com/docs/cloud-messaging/error-codes
-
-## Decisiones y límites
-
-La librería simula la aceptación inicial del proveedor, no la entrega final. En producción, webhooks/callbacks actualizarían `DELIVERED` o `FAILED` publicando nuevos `DeliveryEvent`. El Pub/Sub incluido es local y síncrono; puede reemplazarse por Kafka, SNS u otro adaptador sin cambiar la API principal.
